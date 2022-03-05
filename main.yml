@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - ansible_vault.yml
+    - ansible_python_interpreter.yml
+
+  tasks:
+  - name: check uptime
+    command: 'uptime'
+    register: uptime_result
+    when: "ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'"
+    ignore_errors: true
+    no_log: true
+
+  - debug: var=uptime_result.stdout
+    when: "ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'"

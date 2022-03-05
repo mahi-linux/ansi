@@ -1,0 +1,9 @@
+[GEN]
+10.230.41.122
+10.230.132.65
+
+[all:vars]
+ansible_ssh_common_args='-o ControlPersist=120s -o StrictHostKeyChecking=no'
+ansible_become=true
+ansible_become_method=sudo
+ansible_ssh_user=svc_ansible
