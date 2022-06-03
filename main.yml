@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   vars_files:
-    - ansible_vault.yml
+   #  - ansible_vault.yml
     - ansible_python_interpreter.yml
 
   tasks:
